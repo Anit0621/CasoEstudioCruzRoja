@@ -1,12 +1,21 @@
 #include "GetApi.h"
-#include <curl/curl.h>
-#include "nlohmann/json.hpp"
-#include <sstream>
+#include <iostream>
+#include <string>
+#include "PeticionCurl.h"
+#include "FileHandler.h"
 using namespace std;
-
-void GetApi::verificarNumero(string numero){
-
-
-
-
+GetApi::GetApi() {
 }
+
+string GetApi::apiverificarNumero(std::string phone){
+
+       PeticionCurl peticion1;
+       //en esta parte vamos a recibir la respuesta filtrada y haremos respuesta logica para pasarsela al main como valido o no valido
+       FileHandler respuesta1;
+       string es_valido=respuesta1.JSON(peticion1.peticionC(phone));
+return es_valido;
+}
+
+
+
+
